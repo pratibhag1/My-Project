@@ -31,7 +31,7 @@ if(	   isset($_POST['email'])
 		echo "All good, 'registering user'";
 	}
 	else{
-		echo "What's wrong with you? Learn to type";
+		echo "Not good";
 		exit();
 	}
 	//let's hash it
