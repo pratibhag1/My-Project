@@ -34,7 +34,7 @@ if(	   isset($_POST['email'])
 		echo "Not good";
 		exit();
 	}
-	//let's hash it
+	//hash 
 	$pass = password_hash($pass, PASSWORD_BCRYPT);
 	echo "<br>$pass<br>";
 	//it's hashed
