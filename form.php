@@ -2,10 +2,10 @@
         Log weight: <input type="number" name="weight">
         <input type="submit">
         <br>
-	      Log height: <input type="number" name="height">
+	Log height: <input type="number" name="height">
         <input type="submit">
         <br>
-	      Log water intake: <input type="text" name="water">
+	Log water intake: <input type="text" name="water">
         <input type="submit">
         <br>
         Log food intake: <input type="text" name="food">
@@ -20,7 +20,7 @@
         Log dinner: <input type="text" name="dinner">
         <input type="submit">
         <br>
-	      Log snacks: <input type="text" name="snacks">
+	Log snacks: <input type="text" name="snacks">
         <input type="submit">
         <br>
 </form>
