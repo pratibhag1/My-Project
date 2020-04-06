@@ -8,8 +8,7 @@
 	Log water intake: <input type="text" name="water">
         <input type="submit">
         <br>
-        Log food intake: <input type="text" name="food">
-        <input type="submit">
+        Log food intake
         <br>
       	Log breakfast: <input type="text" name="breakfast">
         <input type="submit">
@@ -30,8 +29,6 @@ Your weight is <?php echo $_GET["weight"] ?>
 Your height is <?php echo $_GET["height"] ?>
 <br>
 Your water intake is <?php echo $_GET["water"] ?>
-<br>
-Your food intake is <?php echo $_GET["food"] ?>
 <br>
 Your breakfast is <?php echo $_GET["breakfast"] ?>
 <br>
