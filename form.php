@@ -1,4 +1,4 @@
-<form action= "form.php" method="get">
+<form action= "site.php" method="get">
         Log weight: <input type="number" name="weight">
         <input type="submit">
         <br>
