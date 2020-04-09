@@ -1,4 +1,10 @@
-<form action= "site.php" method="get">
+<html>
+<head>
+<title>Nutrition App</title>
+<h1 style="font-size:40px;">Nutrition</h1>
+<body bgcolor="lightgray">
+</head>
+<form action= "site.php" method="post">
         Log weight: <input type="number" name="weight">
        
         <br>
