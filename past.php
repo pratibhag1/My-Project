@@ -1,3 +1,15 @@
+<html>
+<head>
+                <title>My Project Nutrition</title>
+                <h1 style="font-size:40px;">History of Meals</h1>
+                <style>
+                body{
+                     	background-color: lightgray;
+                        color: black;
+                }
+                </style>
+        </head>
+</html>
 <?php
 if(isset($_GET['id'])){
 $user_id=$_GET['id'];
