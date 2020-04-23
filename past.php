@@ -1,6 +1,6 @@
 <html>
 <head>
-                <title>My Project Nutrition</title>
+                <title>Nutrition App</title>
                 <h1 style="font-size:40px;">History of Meals</h1>
                 <style>
                 body{
