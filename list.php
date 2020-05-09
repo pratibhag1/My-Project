@@ -3,6 +3,8 @@ include("navbar.php");
 echo "<body style='background-color:lightgray'>";
 ?>
 <br>
+<h1>Meals</h1>
+<br>
 <?php
 
 //"SELECT * FROM Favorites f join Info i ON f.meal_id = i.id where f.user_id = :user and f.meal_id = :meal"  
@@ -21,7 +23,7 @@ if($_GET['page']){
 	$db = new PDO($connection_string, $dbuser, $dbpass);
 	$page = $_GET['page'];
 	if($page == "Info"){
-		$stmt= $db->prepare("select * FROM Info where user_id= :id");
+		$stmt= $db->prepare("select * FROM Info");
 		$params=array(":id"=>$user_id);
 	}
 	else if($page == "Favorites"){
@@ -30,7 +32,7 @@ if($_GET['page']){
 		
 	}
 	$r=$stmt->execute($params);
-	echo var_export($stmt->errorInfo());
+      //echo var_export($stmt->errorInfo());
 	$results=$stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -38,10 +40,10 @@ if($_GET['page']){
 ?>
 <?php foreach($results as $Favorite):?>
         <div>
-             	<div><?php echo $Favorite['breakfast'];?></div>
-                <div><?php echo $Favorite['lunch'];?></div>
-                <div><?php echo $Favorite['dinner'];?></div>
-                <div><?php echo $Favorite['snack'];?></div>
+             	<div><b>Breakfast: </b><?php echo $Favorite['breakfast'];?></div>
+                <div><b>Lunch: </b><?php echo $Favorite['lunch'];?></div>
+                <div><b>Dinner: </b><?php echo $Favorite['dinner'];?></div>
+                <div><b>Snack: </b><?php echo $Favorite['snack'];?></div>
 				<!-- if clicked we add to our favorites if it doesn't exist,
 				if it exists we remove, the label should reflect this
 				i.e., if this is fav page, then we'd show unfav, if it's info page we can show fav
@@ -51,6 +53,7 @@ if($_GET['page']){
 				<?php else:?>
 				<div><a href="del_favorite.php?meal_id=<?php echo $Favorite['id'];?>">UnFavorite me</a></div>
 				<?php endif;?>
+<br>
         </div>
 
 <?php endforeach;?>

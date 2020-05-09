@@ -1,9 +1,14 @@
 <?php
+include("navbar.php");
+echo "<body style='background-color:lightgray'>";
+?>
+<br>
+<?php
 session_start();
 session_unset();
 session_destroy();
 echo "You have been logged out";
-echo var_export($_SESSION, true);
+//echo var_export($_SESSION, true);
 //get session cookie and delete/clear it for this session
 if (ini_get("session.use_cookies")) { 
     $params = session_get_cookie_params(); 
@@ -13,5 +18,10 @@ if (ini_get("session.use_cookies")) {
         $params["path"], $params["domain"], 
         $params["secure"], $params["httponly"] 
     ); 
-} 
+}
+header("Location: login.php"); 
 ?>
+<html>
+<body bgcolor="lightgray">
+</body>
+</html>

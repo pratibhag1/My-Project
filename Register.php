@@ -1,7 +1,13 @@
-
+<?php
+include("navbar.php");
+echo "<body style='background-color:lightgray'>";
+?>
+<br>
 <html>
 	<head>
-		<title>My Project - Register</title>
+		<title>Nutrition App</title>
+<h1 style="font-size:40px;">Register</h1>
+<br>
 	</head>
 	<body>
 		<!-- This is how you comment -->
@@ -28,10 +34,12 @@ if(	   isset($_POST['email'])
 	$pass = $_POST['password'];
 	$conf = $_POST['confirm'];
 	if($pass == $conf){
-		echo "All good, 'registering user'";
+		echo "You have registered";
+header("Location: login.php");
+              
 	}
 	else{
-		echo "Not good";
+		echo "Try again";
 		exit();
 	}
 	//hash 
@@ -42,7 +50,7 @@ if(	   isset($_POST['email'])
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 	try {
 		$db = new PDO($connection_string, $dbuser, $dbpass);
-		$stmt = $db->prepare("INSERT INTO `Users3`
+		$stmt = $db->prepare("INSERT INTO `Users`
                         (email, password) VALUES
                         (:email, :password)");
 		$email = $_POST['email'];
@@ -54,6 +62,8 @@ if(	   isset($_POST['email'])
 	catch(Exception $e){
 		echo $e->getMessage();
 		exit();
+
 	}
 }
+ 
 ?>
