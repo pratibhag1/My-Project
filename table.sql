@@ -6,7 +6,3 @@ CREATE TABLE Profile (
     Location varchar(255)
 );
 
-
-
-
-

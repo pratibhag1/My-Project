@@ -7,10 +7,6 @@ echo "<body style='background-color:lightgray'>";
 <br>
 <?php
 
-//"SELECT * FROM Favorites f join Info i ON f.meal_id = i.id where f.user_id = :user and f.meal_id = :meal"  
-//in the url you'll have some get variables
-//website.com/thispage.php?page=Info
-//don't forget to get the user id from session variable
 if(!isset($_SESSION["user"])){
 	$user_id = 9;
 }
@@ -44,10 +40,7 @@ if($_GET['page']){
                 <div><b>Lunch: </b><?php echo $Favorite['lunch'];?></div>
                 <div><b>Dinner: </b><?php echo $Favorite['dinner'];?></div>
                 <div><b>Snack: </b><?php echo $Favorite['snack'];?></div>
-				<!-- if clicked we add to our favorites if it doesn't exist,
-				if it exists we remove, the label should reflect this
-				i.e., if this is fav page, then we'd show unfav, if it's info page we can show fav
-				though on info page it's likely the user may have already fav'ed it so we don't want to insert the data twice-->
+				
 				<?php if($page == "Info"):?>
 				<div><a href="save_favorite.php?meal_id=<?php echo $Favorite['id'];?>">Favorite me</a></div>
 				<?php else:?>

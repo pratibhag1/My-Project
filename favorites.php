@@ -1,15 +1,4 @@
 <?php
-
-//fetch Info owner's profile visibility from DB
-//this is the insert favorite page so we might not really want this here
-//it should be on any page that can toggle visibility, or 
-//if you want to force the page to be login only, removing the visibility IF condition
-/*if($result["visibility"] == "private"){
-	if(!isset($_SESSION['user'])){
-		header("Location: login.php");
-		exit();
-	}
-}*/
 if(!isset($_SESSION["user"])){
 	$user_id = 9;
 }

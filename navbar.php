@@ -45,7 +45,7 @@ session_start();
  
 
                 <li class="nav-item">
-                    <a href="https://web.njit.edu/~pg425/My-Project/past.php" class="nav-link">Past Meals</a>
+                    <a href="https://web.njit.edu/~pg425/My-Project/past.php" class="nav-link">My Past Meals</a>
                 </li>
 <?php endif;?>
                 <li class="nav-item">
@@ -62,8 +62,11 @@ session_start();
                 <li class="nav-item">
                     <a href="https://web.njit.edu/~pg425/My-Project/logout.php" class="nav-link">Logout</a>
                 </li>
-             
-                
+ <?php if(isset($_SESSION['user'])):?>
+                <li class="nav-item">
+                    <a href="https://web.njit.edu/~pg425/My-Project/admin.php" class="nav-link">About</a>
+                </li>
+                <?php endif;?>
             </ul>
            <?php if(isset($_SESSION['user'])):?>
                 <span class="text-right text-secondary navbar-text">Welcome</span>

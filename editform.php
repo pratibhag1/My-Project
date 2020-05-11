@@ -30,12 +30,13 @@ if(isset($_GET['meal_id'])){
 }
 if(isset($_POST['edited'])){
     $result= $_POST;
-   echo var_export($result, true);
+   //echo var_export($result, true);
     $user_id=$_SESSION['user']['id'];
-    $stmt=$db->prepare("UPDATE Info set weight=:weight, height=:height, breakfast=:breakfast, lunch=:lunch, dinner=:dinner, snack=:snack where id=:id");
+    $stmt=$db->prepare("UPDATE Info set weight=:weight, height=:height, water=:water, breakfast=:breakfast, lunch=:lunch, dinner=:dinner, snack=:snack where id=:id");
     $p= array(//":user_id"=> $user_id,
               ":weight"=> $result['weight'],
               ":height"=> $result['height'],
+              ":water"=> $result['water'],
               ":breakfast"=> $result['breakfast'],
               ":lunch"=> $result['lunch'],
               ":dinner"=> $result['dinner'],
@@ -43,7 +44,7 @@ if(isset($_POST['edited'])){
               ":id"=>$id
           );
     $r= $stmt->execute($p);
-echo var_export($stmt->errorInfo(), true);
+//echo var_export($stmt->errorInfo(), true);
     if($r>0){
         echo "Saved Successfully";
     }
@@ -58,8 +59,8 @@ echo var_export($stmt->errorInfo(), true);
     $stmt= $db->prepare("SELECT * from Info where id=:id");
     $r= $stmt->execute(array(":id"=>$id));
     $result= $stmt->fetch(PDO::FETCH_ASSOC);
-echo var_export($result, true);
-echo var_export($stmt->errorInfo(), true);
+//echo var_export($result, true);
+//echo var_export($stmt->errorInfo(), true);
 }
 ?>
     
@@ -67,6 +68,7 @@ echo var_export($stmt->errorInfo(), true);
 <form method="POST">
     <input type="text" name="weight" value="<?php echo $result['weight'];?>"/>
     <input type="text" name="height" value="<?php echo $result['height'];?>"/>
+   <input type="text" name="water" value="<?php echo $result['water'];?>"/>
     <input type="text" name="breakfast" value="<?php echo $result['breakfast'];?>"/>
     <input type="text" name="lunch" value="<?php echo $result['lunch'];?>"/>
     <input type="text" name="dinner" value="<?php echo $result['dinner'];?>"/>

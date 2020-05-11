@@ -15,17 +15,14 @@ echo "<body style='background-color:lightgray'>";
                 <h1 style="font-size:40px;">My Past 3 Meals</h1>
                 <style>
                 body{
-                     
                         color: black;
                 }
                 </style>
         </head>
 </html>
+
 <br>
 <?php
-//if(isset($_GET['id'])){
-//$user_id=$_GET['id'];
-//}
 $user_id=$_SESSION['user']['id'];
 	 require("config.php");
                 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -41,6 +38,7 @@ $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <?php foreach($results as $Info):?>
+
 	<div>
 		<div><b>Breakfast: </b><?php echo $Info['breakfast'];?></div>
 		<div><b>Lunch: </b><?php echo $Info['lunch'];?></div>
@@ -50,3 +48,4 @@ $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
 	</div>
 <br>
 <?php endforeach;?>
+

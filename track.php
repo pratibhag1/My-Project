@@ -4,6 +4,7 @@ echo "<body style='background-color:lightgray'>";
 ?>
 <br>
 <?php
+
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -23,7 +24,7 @@ if(        isset($_POST['calories'])
         && isset($_POST['iron'])
         ){
 
-        $calories = $_POST['calories'];
+	$calories = $_POST['calories'];
         $protein = $_POST['protein'];
         $carbohydrates = $_POST['carbohydrates'];
         $fiber= $_POST['fiber'];
@@ -37,7 +38,8 @@ if(        isset($_POST['calories'])
         $calcium = $_POST['calcium'];
         $iron = $_POST['iron'];
 
-                //it's hashed
+
+                
 $user_id=$_SESSION['user']['id'];
                 require("config.php");
                 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -62,15 +64,18 @@ $user_id=$_SESSION['user']['id'];
                         ":vitaminc"=> $vitaminc,
                         ":calcium"=> $calcium,
                         ":iron"=> $iron
-                                        );
+                                        
+                                       	);
                         $stmt->execute($params);
-                       //echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+                        //echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+
                 }
                 catch(Exception $e){
                         echo $e->getMessage();
                         exit();
                 }
         }
+
 
 ?>
 <html>
@@ -79,16 +84,18 @@ $user_id=$_SESSION['user']['id'];
                 <h1 style="font-size:40px;">Track Nutrients</h1>
                 <style>
                 body{
+
                 color: black;
                 }
                 </style>        
+                     	
         </head>
+<br>
         <body onload="findFormsOnLoad();">
-                <!-- This is how you comment -->
+                
                 <form name="regform" id="myForm" method="POST"
                                         onsubmit="return doValidations(this)">
                         <div>
-
 
                                 <label for="calories">Calories: </label><br>
                                 <input type="calories" id="calories" name="calories" placeholder="Enter Calories"/>
@@ -143,12 +150,10 @@ $user_id=$_SESSION['user']['id'];
                                 <input type="iron" id="iron" name="iron" placeholder="Enter Iron in mcg"/>
                         </div>
                         <div>
-
                                 <div>&nbsp;</div>
                                 <input type="submit" value="Submit"/>
                         </div>
                 </form>
-
 
 
                 <?php if(isset($msg)):?>
@@ -156,3 +161,4 @@ $user_id=$_SESSION['user']['id'];
                 <?php endif;?>
         </body>
 </html>
+

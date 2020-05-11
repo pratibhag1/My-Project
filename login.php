@@ -11,14 +11,15 @@ echo "<body style='background-color:lightgray'>";
 	</head>
         
 	<body>
-		<!-- This is how you comment -->
+	
 		<form name="loginform" id="myForm" method="POST">
 			<label for="email">Email: </label>
 			<input type="email" id="email" name="email" placeholder="Enter Email"/>
 			<label for="pass">Password: </label>
-			<input type="password" id="pass" name="password" placeholder="Enter password"/>
+			<input type="password" id="pass" name="password" placeholder="Enter Password"/>
 			<input type="submit" value="Login"/>
-
+<br>
+  <a href="forgotpass.php?>">Forgot Password</a>
 		</form>
 	</body>
 </html>

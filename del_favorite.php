@@ -13,7 +13,7 @@ if(!isset($_SESSION["user"])){
 else{
      	$user_id = $_SESSION["user"]["id"];
 }
-//if($_GET['page']){
+
         require("config.php");
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
@@ -37,10 +37,7 @@ else{
                         echo $e->getMessage();
                         exit();
                 }
-
-//$stmt->execute($params);
-                          	//TODO check that it worked
-                                //redirect to a page?
+                                
                                die(header("Location: list.php?page=Favorites"));
 
 }

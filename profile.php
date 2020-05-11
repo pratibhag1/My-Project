@@ -9,15 +9,8 @@ if(!isset($_SESSION['user'])){
 ?>
 <br>
 <?php
-//include("helpers/function.php");
-session_start();
 
-/*$is_logged_in = is_logged_in();
-if(!$is_logged_in){
-	header("Location: login.php");
-}*/
-//$user = get_user_details();
-//pretend we fetched our user
+session_start();
 if(!isset($_SESSION['user'])){
 $user = array(
 			"id" => "1",
@@ -32,10 +25,8 @@ else{
 	$user = $_SESSION['user'];
 }
 //echo "<pre>" . var_export($user, true) . "</pre>";
-//check if we saved changes
+
 if(isset($_REQUEST['saved'])){
-	//TODO let's save
-	//TODO ensure info is valid
 	$email = $_POST['email'];
 	$fn = $_POST['fn'];
 	$ln = $_POST['ln'];
@@ -60,27 +51,16 @@ if(isset($_REQUEST['saved'])){
 	}
 	if($didUpdate){
 		$_SESSION['user'] = $user;
-		//TODO save user changes in DB
-		/*example
-		$results = $stmt->execute()
-		$arr = $stmt->errorInfo()
-		if($results && $arr[0] == '00000'){
-			
-			echo "data should have saved correctly";
-		}*/
+
 		
-		echo "saved successfully";
+		echo "Saved Successfully";
 	}
 	else{
 		echo "No changes to save";
 	}
 }
 ?> 
-<style>
-mark{
-	background-color:red;
-}
-</style>
+
 <div>
 	<form method="post">
 		<div>
