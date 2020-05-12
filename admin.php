@@ -10,20 +10,12 @@ require("config.php");
 
 
 $is_admin = in_array("Admin", $_SESSION['user']['roles']);
-if($isAdmin) { 
- "ok";
+if($is_admin) { 
+ echo "Hello, administrator";
 }
 else{
    die(header("Location: login.php"));
 }
-
-return new User(
-                        $result['id'],
-                        $result['username'],
-                        $result['email'],
-                        $results//roles if any
-                    );
-
 ?>
 
 
