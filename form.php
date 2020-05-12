@@ -24,6 +24,7 @@ if(
 	&& isset($_POST['lunch'])
 	&& isset($_POST['dinner'])
 	&& isset($_POST['snack'])
+	&& isset($_POST['visibility'])
 	){
         
         
@@ -34,7 +35,7 @@ if(
 	$lunch = $_POST['lunch'];
 	$dinner = $_POST['dinner'];
 	$snack = $_POST['snack'];
- 
+        $visibility = $_POST['visibility'];
 
 
 		require("config.php");
@@ -42,8 +43,8 @@ if(
 		try {
 			$db = new PDO($connection_string, $dbuser, $dbpass);
 			$stmt = $db->prepare("INSERT INTO `Info`
-							(weight, height, water, breakfast, lunch, dinner, snack, user_id) VALUES
-							(:weight, :height, :water, :breakfast, :lunch, :dinner, :snack, :user_id)");
+							(weight, height, water, breakfast, lunch, dinner, snack, user_id, visibility) VALUES
+							(:weight, :height, :water, :breakfast, :lunch, :dinner, :snack, :user_id, :visibility)");
 			
 			$params = array(
                                      
@@ -54,7 +55,8 @@ if(
                         ":lunch"=> $lunch,
                         ":dinner"=> $dinner,
                         ":snack"=> $snack,
-                        ":user_id"=>$user_id
+                        ":user_id"=>$user_id,
+			":visibility"=>$visibility
 					);
 			$stmt->execute($params);
 			echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
@@ -123,6 +125,11 @@ if(
                                 <input type="snack" id="snack" name="snack" placeholder="Enter Snack"/>
                         </div>
                         <div>
+				<label for="visibility">Visibility: </label><br>
+                                <input type="visibility" id="visibility" name="visibility" placeholder="Enter 0-Public Or 1-Private"/>
+                        </div>
+                        <div>
+
 
                              	<div>&nbsp;</div>
                                 <input type="submit" name="submit" value="Submit"/>
