@@ -64,7 +64,7 @@ session_start();
                 </li>
  <?php if(isset($_SESSION['user'])):?>
                 <li class="nav-item">
-                    <a href="https://web.njit.edu/~pg425/My-Project/admin.php" class="nav-link">About</a>
+                    <a href="https://web.njit.edu/~pg425/My-Project/admin.php" class="nav-link">Admin</a>
                 </li>
                 <?php endif;?>
             </ul>
