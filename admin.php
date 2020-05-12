@@ -9,9 +9,9 @@ require("config.php");
 
 
 
-$is_admin = in_array("Admin", $_SESSION['user']['roles'])
+$is_admin = in_array("Admin", $_SESSION['user']['roles']);
 if($isAdmin) { 
- "ok"}
+ "ok";
 }
 else{
    die(header("Location: login.php"));
